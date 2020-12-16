@@ -29,6 +29,7 @@
           $query = "INSERT INTO `user`( `namaUser`, `emailUser`, `alamatUser`, `nomorTelponUser`, `pwd`) 
     VALUES ('$namauser','$emailuser','$nomorTeleponUser','$alamatUser','$pwdhash')";
           $input = mysqli_query($conn, $query);
+          header("Location:login.php");
           if (!$input) {
             die("STRING QUERY " . mysqli_error($conn));
           }

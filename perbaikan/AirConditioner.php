@@ -2,6 +2,7 @@
 <?php include "../include/navLogin.php" ?>
 <?php include "../include/db.php" ?>
 
+<br>&nbsp;<br>
 <section id="faq" class="faq section-bg">
     <div class="container d-flex justify-content-center" data-aos="fade-up ">
 
@@ -13,15 +14,18 @@
             $date = $_POST['tanggalSelesai'];
             $catatan = $_POST['catatan'];
 
-            $iduser = $_SESSION['iduser'];
+            $iduser = $_SESSION['IdUser'];
+
+            var_dump($work, $alamat, $date, $catatan, $iduser);
             if (
                 !empty($work) && !empty($alamat) && !empty($date)
             ) {
 
                 $query = "INSERT INTO `airconditioner`
                     ( `IdUser`, `pekerjaan`, `biaya`, `tanggalOrder`, `tanggalSelesai`, `catatan`) 
-                    VALUES ('$iduser','$work','200000',now(),'$date','$catatan'";
+                    VALUES ('$iduser','$work','200000',now(),'$date','$catatan')";
                 $input = mysqli_query($conn, $query);
+                header("Location:sukses.php");
                 if (!$input) {
                     die("STRING QUERY " . mysqli_error($conn));
                 }

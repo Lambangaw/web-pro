@@ -1,0 +1,32 @@
+<?php include "../include/header.php" ?>
+<?php include "../include/navLogin.php" ?>
+<?php include "../include/db.php" ?>
+
+<br>&nbsp;<br>
+<main id="main">
+
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="perbaikan.php">Home</a></li>
+        <li>Inner Page</li>
+      </ol>
+      <h2>Inner Page</h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+  <section class="inner-page">
+    <div class="container">
+      <p>
+        Selamat Anda berhasil melakukan order silahkan klik tombol dibawah untuk mengecek pemesanan anda.
+      </p>
+      <div class="text-center"><button href="order.php" class="get-started-btn" type="submit">Submit</button></div>
+    </div>
+  </section>
+
+</main><!-- End #main -->
+
+<?php include "../include/footer.php" ?>

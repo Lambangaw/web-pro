@@ -1,8 +1,7 @@
 <?php include "include/header.php" ?>
 <?php include "include/navlogin.php" ?>
 <?php include "include/db.php" ?>?>
-
-
+<?php var_dump($_SESSION) ?>
 <!-- ======= Services Section ======= -->
 <section id="services" class="services section-bg">
   <div class="container" data-aos="fade-up">
@@ -16,7 +15,7 @@
       <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-xl-0" data-aos="zoom-in" data-aos-delay="100">
         <div class="icon-box">
           <div class="icon"><i class="bx bxl-dribbble"></i></div>
-          <h4><a href="perbaikan/AirConditioner.php">Air Conditioner</a></h4>
+          <h4><a href="/web-pro/perbaikan/AirConditioner.php">Air Conditioner</a></h4>
           <p>Perbaikan dan pemasangan AC di rumah anda</p>
         </div>
       </div>

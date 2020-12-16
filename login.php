@@ -1,13 +1,16 @@
 <?php include "include/header.php"; ?>
 <?php include "include/nav.php"; ?>
 <?php include "include/db.php"; ?>
+<br>&nbsp;<br>
 <!-- ======= Frequently Asked Questions Section ======= -->
 <section id="faq" class="faq section-bg">
-
   <?php
+  ob_start();
   if (isset($_POST['submit'])) {
+
     $email = $_POST['emailUser'];
     $pwd = $_POST['pwd'];
+    var_dump($email, $pwd);
     if (
       !empty($email) && !empty($pwd)
     ) {
@@ -16,15 +19,17 @@
 
       $count = mysqli_num_rows($cekuser);
       if ($count > 0) {
-        echo "ada";
         while ($row = mysqli_fetch_assoc($cekuser)) {
           $dbpwd = $row['pwd'];
         }
+        var_dump($row);
         $passver = password_verify($pwd, $dbpwd);
-        if ($passver) {
-          echo "password benar";
+        if ($passver == TRUE) {
           session_start();
-          header("Location: https://www.google.com");
+          $_SESSION["loggedin"] = true;
+          $_SESSION["IdUser"] = $row['IdUser'];
+          $_SESSION["namaUser"] = $row['namaUser'];
+          header('Location:perbaikan.php');
         } else {
           echo "password salah";
         }
@@ -33,6 +38,7 @@
       }
     }
   }
+  ob_flush();
   ?>
 
   <div class="container" data-aos="fade-up">
