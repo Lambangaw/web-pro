@@ -1,5 +1,7 @@
+<?php include "../include/header.php" ?>
+<?php include "../include/db.php" ?>
+<?php include "../include/navLogin.php" ?>
 <?php
-ob_start();
 if (isset($_POST['submit'])) {
     $work = $_POST['pekerjaan'];
     $alamat = $_POST['alamatPekerjaan'];
@@ -9,7 +11,7 @@ if (isset($_POST['submit'])) {
     if (
         !empty($work) && !empty($alamat) && !empty($date)
     ) {
-        $query = "INSERT INTO `airconditioner`
+        $query = "INSERT INTO `perbaikan`
                     ( `IdUser`, `pekerjaan`, `biaya`, `tanggalOrder`, `tanggalSelesai`, `catatan`) 
                     VALUES ('$iduser','$work','200000',now(),'$date','$catatan')";
         $input = mysqli_query($conn, $query);
@@ -27,10 +29,6 @@ if (isset($_POST['submit'])) {
 }
 ob_flush();
 ?>
-<?php include "../include/header.php" ?>
-<?php include "../include/db.php" ?>
-<?php include "../include/navLogin.php" ?>
-
 <br>&nbsp;<br>
 <section id="faq" class="faq section-bg">
     <div class="container d-flex justify-content-center" data-aos="fade-up ">

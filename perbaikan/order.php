@@ -7,11 +7,13 @@ $query = "SELECT * FROM perbaikan WHERE IdUser = '$iduser'";
 $order = mysqli_query($conn, $query);
 $i = 0;
 while ($row = mysqli_fetch_assoc($order)) {
+    $idorder[$i] = $row['IdPerbaikan'];
     $pekerjaan[$i] = $row['pekerjaan'];
     $biaya[$i] = $row['biaya'];
     $tanggalorder[$i] = $row['tanggalOrder'];
     $tanggalselesai[$i] = $row['tanggalSelesai'];
     $catatan[$i] = $row['catatan'];
+    $status[$i] = $row['status'];
     $i++;
 }
 
@@ -53,6 +55,7 @@ while ($row = mysqli_fetch_assoc($order)) {
                                     <th>Biaya</th>
                                     <th>Tanggal Order</th>
                                     <th>Keterangan</th>
+                                    <th>Status</th>
 
                                 </tr>
                             </thead>
@@ -66,6 +69,16 @@ while ($row = mysqli_fetch_assoc($order)) {
                                         <td><?php echo $biaya[$x] ?></td>
                                         <td><?php echo $tanggalorder[$x] ?></td>
                                         <td><?php echo $catatan[$x] ?></td>
+                                        <td><?php
+                                            if ($status[$x] == 0) { ?>
+                                                <a href="pembayaran.php?id=<?php echo $idorder[$x] ?>" target="_blank"> Klik untuk bayar </a>
+                                            <?php } elseif ($status[$x] == 1) {
+                                                echo "Tukang kami sedang menuju ke hunianmu.";
+                                            } elseif ($status[$x] == 3) {
+                                                echo "Pemesanan Selesai \n";
+                                                echo "Terimakasih telah menggunakan jasa tukangku";
+                                            }
+                                            ?></td>
                                     </tr>
                                 <?php } ?>
 

@@ -27,6 +27,7 @@
           $alamat = $row['alamatUser'];
           $phone = $row['nomorTelponUser'];
           $dbpwd = $row['pwd'];
+          $role = $row['role'];
         }
 
         //die();
@@ -40,8 +41,8 @@
           $_SESSION["alamat"] = $alamat;
           $_SESSION["nomortelepon"] = $phone;
           $_SESSION["pwd"] = $dbpwd;
-
-          header('Location:perbaikan.php');
+          $_SESSION["role"] = $role;
+          header('Location:welcomeUser.php');
         } else {
           echo "password salah";
         }

@@ -11,9 +11,6 @@
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="/web-pro/signUp.php">Signup</a></li>
                 <li><a href="/web-pro/login.php">Log In</a></li>
-
-
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav><!-- .nav-menu -->
         <a href="#about" class="get-started-btn scrollto">Get Started</a>

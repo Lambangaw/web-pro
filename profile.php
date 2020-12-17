@@ -144,7 +144,7 @@ while ($row = mysqli_fetch_assoc($db)) {
           <div id="faq-list-3" class="collapse" data-parent=".faq-list">
             <p>
               <label for="name">Password</label>
-              <form action="editpasswd.php" class="form-inline" method="post">
+              <form action="editpassword.php" class="form-inline" method="post">
                 <label for="editpassword"></label>
                 <button type="submit" class="btn btn-primary" href="editpasswd.php"> Edit Password </button>
                 <small id="passwordHelpInline" class="text-muted">

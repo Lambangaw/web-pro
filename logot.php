@@ -1,4 +1,5 @@
 <?php
+session_start();
 unset($_SESSION["loggedin"]);
 unset($_SESSION["iduser"]);
 unset($_SESSION["nama"]);

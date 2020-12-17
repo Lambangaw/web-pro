@@ -23,11 +23,16 @@
 
         if ($pwd == $pwdconfirm) {
           $pwdhash = password_hash($pwd, PASSWORD_DEFAULT);
-
-          $query = "INSERT INTO `user`( `namaUser`, `emailUser`, `alamatUser`, `nomorTelponUser`, `pwd`) 
-    VALUES ('$namauser','$emailuser','$nomorTeleponUser','$alamatUser','$pwdhash')";
-          $input = mysqli_query($conn, $query);
-          header("Location:login.php");
+          $select = "SELECT * from user where emailUser = '$emailuser' ";
+          $dbselect = mysqli_query($conn, $query);
+          if (mysqli_num_rows($dbselect) > 0) {
+            $msg = "email sudah digunakan";
+          } else {
+            $query = "INSERT INTO `user`( `namaUser`, `emailUser`, `alamatUser`, `nomorTelponUser`, `pwd`,`role`) 
+    VALUES ('$namauser','$emailuser','$nomorTeleponUser','$alamatUser','$pwdhash','user')";
+            $input = mysqli_query($conn, $query);
+            header("Location:login.php");
+          }
           if (!$input) {
             die("STRING QUERY " . mysqli_error($conn));
           }
