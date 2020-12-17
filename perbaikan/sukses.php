@@ -10,7 +10,7 @@
     <div class="container">
 
       <ol>
-        <li><a href="perbaikan.php">Home</a></li>
+        <li><a href="../perbaikan.php">Home</a></li>
         <li>Inner Page</li>
       </ol>
       <h2>Inner Page</h2>
@@ -20,10 +20,10 @@
 
   <section class="inner-page">
     <div class="container">
-      <p>
+      <p class="justify">
         Selamat Anda berhasil melakukan order silahkan klik tombol dibawah untuk mengecek pemesanan anda.
       </p>
-      <div class="text-center"><button href="order.php" class="get-started-btn" type="submit">Submit</button></div>
+      <div class="text-center"><button href="../order.php" class="button" type="submit">Submit</button></div>
     </div>
   </section>
 

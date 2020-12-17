@@ -1,36 +1,39 @@
-<?php include "/web-pro/include/header.php" ?>
-<?php include "/web-pro/include/navLogin.php" ?>
-<?php include "/web-pro/include/db.php" ?>
+<?php
+ob_start();
+if (isset($_POST['submit'])) {
+    $work = $_POST['pekerjaan'];
+    $alamat = $_POST['alamatPekerjaan'];
+    $date = $_POST['tanggalSelesai'];
+    $catatan = $_POST['catatan'];
+    $iduser = (int) $_SESSION['iduser'];
+    if (
+        !empty($work) && !empty($alamat) && !empty($date)
+    ) {
+        $query = "INSERT INTO `cat`
+                    ( `IdUser`, `pekerjaan`, `biaya`, `tanggalOrder`, `tanggalSelesai`, `catatan`) 
+                    VALUES ('$iduser','$work','200000',now(),'$date','$catatan')";
+        $input = mysqli_query($conn, $query);
+        if (headers_sent()) {
+            die("Redirect failed. Please click on this link: <a href=sukses.php> this");
+        } else {
+            exit(header("Location:sukses.php"));
+        }
+        if (!$input) {
+            die("STRING QUERY " . mysqli_error($conn));
+        }
+    } else {
+        echo "jangan kosong";
+    }
+}
+ob_flush();
+?>
+<?php include "../include/header.php" ?>
+<?php include "../include/db.php" ?>
+<?php include "../include/navLogin.php" ?>
 
+<br>&nbsp;<br>
 <section id="faq" class="faq section-bg">
     <div class="container d-flex justify-content-center" data-aos="fade-up ">
-
-        <?php
-        if (isset($_POST['submit'])) {
-            echo "masuk isset";
-            $work = $_POST['pekerjaan'];
-            $alamat = $_POST['alamatPekerjaan'];
-            $date = $_POST['tanggalSelesai'];
-            $catatan = $_POST['catatan'];
-
-            $iduser = $_SESSION['iduser'];
-            if (
-                !empty($work) && !empty($alamat) && !empty($date)
-            ) {
-
-                $query = "INSERT INTO `airconditioner`
-                    ( `IdUser`, `pekerjaan`, `biaya`, `tanggalOrder`, `tanggalSelesai`, `catatan`) 
-                    VALUES ('$iduser','$work','200000',now(),'$date','$catatan'";
-                $input = mysqli_query($conn, $query);
-                if (!$input) {
-                    die("STRING QUERY " . mysqli_error($conn));
-                }
-            } else {
-                echo "jangan kosong";
-            }
-        }
-        ?>
-
 
         <div class="col-lg-7 mt-5 mt-lg-0 d-flex content-align-center flex-center justify-content-center">
             <form action="" method="post">

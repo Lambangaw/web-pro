@@ -19,16 +19,29 @@
 
       $count = mysqli_num_rows($cekuser);
       if ($count > 0) {
+
         while ($row = mysqli_fetch_assoc($cekuser)) {
+
+          $uname = $row['namaUser'];
+          $iduser = $row['IdUser'];
+          $email = $row['emailUser'];
+          $alamat = $row['alamatUser'];
+          $phone = $row['nomorTelponUser'];
           $dbpwd = $row['pwd'];
         }
-        var_dump($row);
+
+        //die();
         $passver = password_verify($pwd, $dbpwd);
         if ($passver == TRUE) {
           session_start();
           $_SESSION["loggedin"] = true;
-          $_SESSION["IdUser"] = $row['IdUser'];
-          $_SESSION["namaUser"] = $row['namaUser'];
+          $_SESSION["iduser"] = $iduser;
+          $_SESSION["nama"] = $uname;
+          $_SESSION["email"] = $email;
+          $_SESSION["alamat"] = $alamat;
+          $_SESSION["nomortelepon"] = $phone;
+          $_SESSION["pwd"] = $dbpwd;
+
           header('Location:perbaikan.php');
         } else {
           echo "password salah";
@@ -54,7 +67,7 @@
         <div class="validate"></div>
       </div>
 
-      <div class="text-center"><button name="submit" type="submit">Login</button></div>
+      <div class="text-center"><button class="button" name="submit" type="submit">Login</button></div>
     </form>
   </div>
 

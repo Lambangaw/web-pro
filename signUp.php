@@ -1,7 +1,5 @@
 <?php include "include/header.php" ?>
-
 <?php include "include/nav.php" ?>
-
 <?php include "include/db.php" ?>
 
 
@@ -82,7 +80,7 @@
           <div class="error-message"></div>
           <div class="sent-message">Your data has been sent. Thank you!</div>
         </div>
-        <div class="text-center"><button name="submit" type="submit">Sign Up</button></div>
+        <div class="text-center"><button class="bttn" name="submit" type="submit">Sign Up</button></div>
       </form>
     </div>
 

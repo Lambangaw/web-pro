@@ -12,7 +12,6 @@
                 <ul>
                     <li><a href="/web-pro/index.php">Home</a></li>
                     <li><a href="/web-pro/perbaikan/order.php">Pesanan</a></li>
-                    <li><a href="/web-pro/logot.php">Log out</a></li>
                     <li class="drop-down"><a href="">Drop Down</a>
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
@@ -30,12 +29,12 @@
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/web-pro/profile.php">Profile <?php echo $_SESSION['nama'] ?></a></li>
 
                 </ul>
             </nav><!-- .nav-menu -->
 
-            <a href="#about" class="get-started-btn scrollto">Get Started</a>
+            <a href="/web-pro/logot.php" class="get-started-btn scrollto">Log out</a>
 
         </div>
     </header><!-- End Header -->

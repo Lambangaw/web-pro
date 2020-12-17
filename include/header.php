@@ -1,6 +1,6 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start(); ?>
 
 <head>
   <meta charset="utf-8">
@@ -21,6 +21,8 @@
   <link href="/web-pro/assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="/web-pro/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="/web-pro/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="/web-pro/assets/vendor/animate/animate.css">
+  <link rel="stylesheet" href="/web-pro/assets/vendor/select2/select2.min.css">
   <!-- css date -->
   <link rel="stylesheet" href="/web-pro/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
   <script src="/web-pro/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
@@ -34,6 +36,7 @@
   </script>
   <!-- Template Main CSS File -->
   <link href="/web-pro/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/web-pro/assets/css/util.css">
   <!-- =======================================================
   * Template Name: Arsha - v2.2.1
   * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
