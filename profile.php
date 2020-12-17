@@ -1,7 +1,18 @@
 <?php include "include/header.php" ?>
 <?php include "include/navLogin.php" ?>
 <?php include "include/db.php" ?>
-
+<?php
+if (isset($_POST['userImage'])) {
+  $id = $_SESSION['iduser'];
+  $foto = $_FILES["userImage"]["name"];
+  $profileImageName = time() . '-' . $_FILES["profileImage"]["name"];
+  $temp_name = $_FILES["userImage"]["tmp_name"];
+  move_uploaded_file($temp_name, "image/$profileImageName");
+  $query = "UPDATE user SET userImage = '$profileImageName'    
+  WHERE idUser = '$id'";
+  $data = mysqli_query($conn, $query);
+}
+?>
 <?php
 if (isset($_POST['submitnama'])) {
   $id = $_SESSION['iduser'];
@@ -39,6 +50,22 @@ if (isset($_POST['submitalamat'])) {
   }
 } ?>
 
+<?php
+$id = $_SESSION['iduser'];
+$query = "SELECT * FROM `user` WHERE IdUser = '$id' ";
+$db = mysqli_query($conn, $query);
+while ($row = mysqli_fetch_assoc($db)) {
+  $uname = $row['namaUser'];
+  $iduser = $row['IdUser'];
+  $email = $row['emailUser'];
+  $alamat = $row['alamatUser'];
+  $phone = $row['nomorTelponUser'];
+  $dbpwd = $row['pwd'];
+  $foto = $row['userImage'];
+}
+
+?>
+
 <br>&nbsp;<br>
 <!-- ======= Frequently Asked Questions Section ======= -->
 <section id="faq" class="faq section-bg">
@@ -50,6 +77,18 @@ if (isset($_POST['submitalamat'])) {
     </div>
 
     <div class="faq-list">
+      <div class="text-center">
+        <img src="image/<?php echo $foto ?>" class="img-fluid rounded" width="250" height="250">
+        <form action="" method="post" class="form-inline" enctype="multipart/form-data">
+          <label class="sr-only" for="foto">Photo</label>
+          <div class="col-md-12 text-center">
+            <br>&nbsp;<br>
+            <input type="file" name="userImage">
+            <button type="submit" name="userImage" class="btn btn-primary justify">Edit Photo</button>
+          </div>
+        </form>
+        <br>&nbsp;<br>
+      </div>
       <ul>
         <li data-aos="fade-up" data-aos-delay="100">
           <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">Nama <br> <?php echo $_SESSION['nama'] ?><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>

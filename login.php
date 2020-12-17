@@ -5,7 +5,6 @@
 <!-- ======= Frequently Asked Questions Section ======= -->
 <section id="faq" class="faq section-bg">
   <?php
-  ob_start();
   if (isset($_POST['submit'])) {
 
     $email = $_POST['emailUser'];
@@ -51,7 +50,6 @@
       }
     }
   }
-  ob_flush();
   ?>
 
   <div class="container" data-aos="fade-up">

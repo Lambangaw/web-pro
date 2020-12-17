@@ -1,10 +1,15 @@
-<?php
-$query = "SELECT * FROM perbaikan"
-?>
 <?php include "../include/header.php" ?>
-<?php include "../include/navLogin.php" ?>
+<!-- <?php include "../include/navLogin.php" ?> -->
 <?php include "../include/db.php" ?>
-
+<?php
+$iduser = $_SESSION['iduser'];
+$query = "SELECT * FROM perbaikan WHERE IdUser = '$iduser'";
+$order = mysqli_query($conn, $query);
+while ($row = mysqli_fetch_assoc($order)) {
+    var_dump($row);
+}
+die();
+?>
 <br>&nbsp;<br>
 <br>&nbsp;<br>
 
