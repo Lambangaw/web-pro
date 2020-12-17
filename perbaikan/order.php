@@ -1,14 +1,20 @@
 <?php include "../include/header.php" ?>
-<!-- <?php include "../include/navLogin.php" ?> -->
+<?php include "../include/navLogin.php" ?>
 <?php include "../include/db.php" ?>
 <?php
 $iduser = $_SESSION['iduser'];
 $query = "SELECT * FROM perbaikan WHERE IdUser = '$iduser'";
 $order = mysqli_query($conn, $query);
+$i = 0;
 while ($row = mysqli_fetch_assoc($order)) {
-    var_dump($row);
+    $pekerjaan[$i] = $row['pekerjaan'];
+    $biaya[$i] = $row['biaya'];
+    $tanggalorder[$i] = $row['tanggalOrder'];
+    $tanggalselesai[$i] = $row['tanggalSelesai'];
+    $catatan[$i] = $row['catatan'];
+    $i++;
 }
-die();
+
 ?>
 <br>&nbsp;<br>
 <br>&nbsp;<br>
@@ -23,9 +29,9 @@ die();
 
             <ol>
                 <li><a href="perbaikan.php">Home</a></li>
-                <li>Inner Page</li>
+                <li>Order</li>
             </ol>
-            <h2>Inner Page</h2>
+            <h2>Pemesanan</h2>
 
         </div>
     </section><!-- End Breadcrumbs -->
@@ -42,22 +48,26 @@ die();
                         <table class="table">
                             <thead class="thead-light">
                                 <tr class="table100-head">
-                                    <th class="column1">Date</th>
-                                    <th class="column2">Order ID</th>
-                                    <th class="column3">Category</th>
-                                    <th class="column4">Price</th>
+                                    <th>No</th>
+                                    <th>Pemesanan</th>
+                                    <th>Biaya</th>
+                                    <th>Tanggal Order</th>
+                                    <th>Keterangan</th>
 
                                 </tr>
                             </thead>
+
                             <tbody>
-                                <tr>
-                                    <td class="column1">2017-09-29 01:22</td>
-                                    <td class="column2">200398</td>
-                                    <td class="column3">iPhone X 64Gb Grey</td>
-                                    <td class="column4">$999.00</td>
-
-                                </tr>
-
+                                <?php for ($x = 0; $x < $i; $x++) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $x ?></td>
+                                        <td><?php echo $pekerjaan[$x] ?></td>
+                                        <td><?php echo $biaya[$x] ?></td>
+                                        <td><?php echo $tanggalorder[$x] ?></td>
+                                        <td><?php echo $catatan[$x] ?></td>
+                                    </tr>
+                                <?php } ?>
 
                             </tbody>
                         </table>
@@ -65,7 +75,7 @@ die();
                 </div>
             </div>
         </div>
-        <div class="text-center"><button href="order.php" class="get-started-btn" type="submit">Submit</button></div>
+
         </div>
     </section>
 

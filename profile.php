@@ -5,7 +5,7 @@
 if (isset($_POST['userImage'])) {
   $id = $_SESSION['iduser'];
   $foto = $_FILES["userImage"]["name"];
-  $profileImageName = time() . '-' . $_FILES["profileImage"]["name"];
+  $profileImageName = time() . '-' . $_FILES["userImage"]["name"] . "jpg";
   $temp_name = $_FILES["userImage"]["tmp_name"];
   move_uploaded_file($temp_name, "image/$profileImageName");
   $query = "UPDATE user SET userImage = '$profileImageName'    
