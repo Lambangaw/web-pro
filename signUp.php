@@ -1,7 +1,7 @@
 <?php include "include/header.php" ?>
 <?php include "include/nav.php" ?>
 <?php include "include/db.php" ?>
-
+<br>&nbsp;<br>
 
 
 <!-- ======= Frequently Asked Questions Section ======= -->
@@ -29,12 +29,13 @@
             $msg = "email sudah digunakan";
           } else {
             $query = "INSERT INTO `user`( `namaUser`, `emailUser`, `alamatUser`, `nomorTelponUser`, `pwd`,`role`) 
-    VALUES ('$namauser','$emailuser','$nomorTeleponUser','$alamatUser','$pwdhash','user')";
+    VALUES ('$namauser','$emailuser','$alamatUser','$nomorTeleponUser','$pwdhash','user')";
             $input = mysqli_query($conn, $query);
-            header("Location:login.php");
           }
           if (!$input) {
             die("STRING QUERY " . mysqli_error($conn));
+          } else {
+            header("Location:login.php");
           }
         } else {
           echo "password tidak sama";
@@ -80,11 +81,7 @@
           <input type="password" class="form-control" name="pwdconfirm" id="subject" data-msg="Please rewrite your password" />
           <div class="validate"></div>
         </div>
-        <div class="mb-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your data has been sent. Thank you!</div>
-        </div>
+
         <div class="text-center"><button class="bttn" name="submit" type="submit">Sign Up</button></div>
       </form>
     </div>

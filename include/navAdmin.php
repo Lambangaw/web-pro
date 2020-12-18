@@ -8,8 +8,7 @@
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li><a href="/web-pro/welcomeUser.php">Home</a></li>
-                <li><a href="/web-pro/perbaikan/order.php">Pesanan</a></li>
+                <li><a href="/web-pro/welcomeAdmin.php">Home</a></li>
                 <li class="drop-down"><a href="">Drop Down</a>
                     <ul>
                         <li><a href="#">Drop Down 1</a></li>

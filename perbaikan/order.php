@@ -3,13 +3,15 @@
 <?php include "../include/db.php" ?>
 <?php
 $iduser = $_SESSION['iduser'];
-$query = "SELECT * FROM perbaikan WHERE IdUser = '$iduser'";
+$query = "SELECT * FROM perbaikan 
+LEFT JOIN kategoriperbaikan ON perbaikan.IdKategori = kategoriperbaikan.IdKategori
+ WHERE IdUser = '$iduser'";
 $order = mysqli_query($conn, $query);
-$i = 0;
+$i = 1;
 while ($row = mysqli_fetch_assoc($order)) {
     $idorder[$i] = $row['IdPerbaikan'];
     $pekerjaan[$i] = $row['pekerjaan'];
-    $biaya[$i] = $row['biaya'];
+    $biaya[$i] = $row['biayaKategori'];
     $tanggalorder[$i] = $row['tanggalOrder'];
     $tanggalselesai[$i] = $row['tanggalSelesai'];
     $catatan[$i] = $row['catatan'];
@@ -61,7 +63,7 @@ while ($row = mysqli_fetch_assoc($order)) {
                             </thead>
 
                             <tbody>
-                                <?php for ($x = 0; $x < $i; $x++) {
+                                <?php for ($x = 1; $x < $i; $x++) {
                                 ?>
                                     <tr>
                                         <td><?php echo $x ?></td>

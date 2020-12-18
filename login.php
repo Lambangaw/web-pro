@@ -42,7 +42,11 @@
           $_SESSION["nomortelepon"] = $phone;
           $_SESSION["pwd"] = $dbpwd;
           $_SESSION["role"] = $role;
-          header('Location:welcomeUser.php');
+          if ($role == "user") {
+            header('Location:welcomeUser.php');
+          } else {
+            header('Location:welcomeAdmin.php');
+          }
         } else {
           echo "password salah";
         }

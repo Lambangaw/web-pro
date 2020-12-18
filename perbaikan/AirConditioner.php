@@ -11,10 +11,12 @@ if (isset($_POST['submit'])) {
     if (
         !empty($work) && !empty($alamat) && !empty($date)
     ) {
-        $query = "INSERT INTO `perbaikan`
-                    ( `IdUser`, `pekerjaan`, `biaya`, `tanggalOrder`, `tanggalSelesai`, `catatan`) 
-                    VALUES ('$iduser','$work','200000',now(),'$date','$catatan')";
+        $queryperbaikan = "INSERT INTO `perbaikan`
+                    ( `IdUser`, `pekerjaan`, `IdKategori`, `tanggalOrder`, `tanggalSelesai`, `catatan`) 
+                    VALUES ('$iduser','$work',1,now(),'$date','$catatan')
+                    OUTPUT INSERTED.IdPerbaikan INTO pembayaran";
         $input = mysqli_query($conn, $query);
+
         if (headers_sent()) {
             die("Redirect failed. Please click on this link: <a href=sukses.php> this");
         } else {

@@ -5,7 +5,7 @@
 if (isset($_POST['userImage'])) {
   $id = $_SESSION['iduser'];
   $foto = $_FILES["userImage"]["name"];
-  $profileImageName = time() . '-' . $_FILES["userImage"]["name"] . "jpg";
+  $profileImageName = time() . '-' . $_FILES["userImage"]["name"] . ".jpg";
   $temp_name = $_FILES["userImage"]["tmp_name"];
   move_uploaded_file($temp_name, "image/$profileImageName");
   $query = "UPDATE user SET userImage = '$profileImageName'    
@@ -78,7 +78,7 @@ while ($row = mysqli_fetch_assoc($db)) {
 
     <div class="faq-list">
       <div class="text-center">
-        <img src="image/<?php echo $foto ?>" class="img-fluid rounded" width="250" height="250">
+        <img src="image/profile/<?php echo $foto ?>" class="img-fluid rounded" width="250" height="250">
         <form action="" method="post" class="form-inline" enctype="multipart/form-data">
           <label class="sr-only" for="foto">Photo</label>
           <div class="col-md-12 text-center">
@@ -95,23 +95,17 @@ while ($row = mysqli_fetch_assoc($db)) {
           <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
             <p>
               <label for="name">Your Name</label>
-
               <form action="" method="post" class="form-inline ">
-
                 <label class="sr-only" for="inlineFormInputName2">Name</label>
                 <input type="text" name="namaUser" class="form-control" id="name" data-msg="Please enter at least 4 chars" placeholder="<?php echo $_SESSION['nama'] ?>">
-
                 <button type="submit" name="submitnama" class="btn  btn-primary ">Submit</button>
-
               </form>
-
-
             </p>
           </div>
         </li>
 
         <li data-aos="fade-up" data-aos-delay="200">
-          <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">email <br> <?php echo $_SESSION['email'] ?><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+          <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">Email <br> <?php echo $_SESSION['email'] ?><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
           <div id="faq-list-2" class="collapse" data-parent=".faq-list">
             <p>
 
@@ -129,10 +123,22 @@ while ($row = mysqli_fetch_assoc($db)) {
           <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4" class="collapsed">Alamat <br><br> <?php echo $_SESSION['alamat'] ?><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
           <div id="faq-list-4" class="collapse" data-parent=".faq-list">
             <p>
-
               <label for="name">Alamat</label>
               <form action="" method="post" class="form-inline">
-                <input type="text" name="alamat" class="form-control" id="name" data-msg="Please enter at least 4 chars" placeholder="<?php echo $_SESSION['alamatuser'] ?>" />
+                <input type="text" name="alamat" class="form-control" id="name" data-msg="Please enter at least 4 chars" placeholder="<?php echo $_SESSION['alamat'] ?>" />
+                <button name="submitalamat" class="btn btn-primary" type="submit"> Submit </button>
+              </form>
+            </p>
+          </div>
+        </li>
+
+        <li data-aos="fade-up" data-aos-delay="500">
+          <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-5" class="collapsed">Nomor Telepon <br> <?php echo $_SESSION['nomortelepon'] ?><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+          <div id="faq-list-5" class="collapse" data-parent=".faq-list">
+            <p>
+              <label for="name">Nomor Telepon</label>
+              <form action="" method="post" class="form-inline">
+                <input type="text" name="alamat" class="form-control" id="name" data-msg="Please enter at least 4 chars" placeholder="<?php echo $_SESSION['nomortelepon'] ?>" />
                 <button name="submitalamat" class="btn btn-primary" type="submit"> Submit </button>
               </form>
             </p>
@@ -157,15 +163,7 @@ while ($row = mysqli_fetch_assoc($db)) {
 
 
 
-        <li data-aos="fade-up" data-aos-delay="500">
-          <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-          <div id="faq-list-5" class="collapse" data-parent=".faq-list">
-            <p>
-              <label for="name">Your Name</label>
-              <input type="text" name="namaUser" class="form-control" id="name" data-msg="Please enter at least 4 chars" placeholder="<?php echo $_SESSION['namaUser'] ?>" />
-            </p>
-          </div>
-        </li>
+
 
       </ul>
     </div>
