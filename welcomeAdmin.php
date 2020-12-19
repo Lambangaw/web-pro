@@ -20,14 +20,19 @@ while ($row = mysqli_fetch_assoc($order)) {
   $bukti[$i] = $row['bukti'];
   $i++;
 }
-
-if (isset($_GET['verifikasibukti'])) {
-  var_dump($_GET);
-  die();
-  $queryupdate = "UPDATE perbaikan SET 'status' = 2 WHERE IdPerbaikan = '$idorder'";
+if (isset($_POST['verifikasibukti'])) {
+  $idset = $_POST['id'];
+  $set = "UPDATE perbaikan SET status = 2 WHERE IdPerbaikan = '$idset' ";
+  $update = mysqli_query($conn, $set);
+  if (!$update) {
+    die("STRING QUERY " . mysqli_error($conn));
+  }
+  if (headers_sent()) {
+    die("Redirect failed. Please click on this link: <a href=sukses.php> this");
+  } else {
+    exit(header("Location:welcomeAdmin.php"));
+  }
 }
-
-
 ?>
 <br>&nbsp;<br>
 <br>&nbsp;<br>
@@ -91,12 +96,12 @@ if (isset($_GET['verifikasibukti'])) {
                           <small>Download bukti bayar disini.</small>
                         </form>
                         <br>
-                        <form action="<?php echo $x ?>" method="get">
+                        <form action="" method="post">
+                          <input type="hidden" id="custId" name="id" value="<?php echo $idorder[$x] ?>">
                           <button name="verifikasibukti" type="submit" class="btn btn-success">Verifikasi Bukti bayar</button>
                         </form>
                       <?php  } elseif ($status[$x] == 3) {
                           echo "Pemesanan Selesai \n";
-                          echo "Terimakasih telah menggunakan jasa tukangku";
                         }
                       ?>
                     </td>

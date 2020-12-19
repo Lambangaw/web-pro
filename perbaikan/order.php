@@ -18,7 +18,21 @@ while ($row = mysqli_fetch_assoc($order)) {
     $status[$i] = $row['status'];
     $i++;
 }
-
+?>
+<?php
+if (isset($_POST['verifikasi'])) {
+    $idset = $_POST['id'];
+    $set = "UPDATE perbaikan SET status = 3 WHERE IdPerbaikan = '$idset' ";
+    $update = mysqli_query($conn, $set);
+    if (!$update) {
+        die("STRING QUERY " . mysqli_error($conn));
+    }
+    if (headers_sent()) {
+        die("Redirect failed. Please click on this link: <a href=sukses.php> this");
+    } else {
+        exit(header("Location:order.php"));
+    }
+}
 ?>
 <br>&nbsp;<br>
 <br>&nbsp;<br>
@@ -76,6 +90,12 @@ while ($row = mysqli_fetch_assoc($order)) {
                                                 <a href="pembayaran.php?id=<?php echo $idorder[$x] ?>" target="_blank"> Klik untuk bayar </a>
                                             <?php } elseif ($status[$x] == 1) {
                                                 echo "Tukang kami sedang menuju ke hunianmu.";
+                                            } elseif ($status[$x] == 2) { ?>
+                                                <form action="" method="post">
+                                                    <input type="hidden" id="custId" name="id" value="<?php echo $idorder[$x] ?>">
+                                                    <button class="btn btn-primary" type="submit" name="verifikasi">Verifikasi Selesai</button>
+                                                </form>
+                                            <?php
                                             } elseif ($status[$x] == 3) {
                                                 echo "Pemesanan Selesai \n";
                                                 echo "Terimakasih telah menggunakan jasa tukangku";

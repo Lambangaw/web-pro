@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     ) {
         $queryperbaikan = "INSERT INTO `perbaikan`
                     ( `IdUser`, `pekerjaan`, `IdKategori`, `tanggalOrder`, `tanggalSelesai`, `catatan`) 
-                    VALUES ('$iduser','$work',2,now(),'$date','$catatan')
+                    VALUES ('$iduser','$work',4,now(),'$date','$catatan')
                     ";
         $input = mysqli_query($conn, $query);
         if (!$input) {

@@ -23,7 +23,11 @@
       <p class="justify">
         Selamat Anda berhasil melakukan order silahkan klik tombol dibawah untuk mengecek pemesanan anda.
       </p>
-      <div class="text-center"><button href="../order.php" class="button" type="submit">Submit</button></div>
+      <form action="order.php">
+        <div class="text-center">
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
     </div>
   </section>
 

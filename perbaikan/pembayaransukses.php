@@ -17,7 +17,7 @@
   </section><!-- End Breadcrumbs -->
 
   <section class="inner-page">
-    <div class="container">
+    <div class="container text-center">
       <p>
         Pembayaran anda telah berhasil, klik tombol dibawah ini untuk kembali ke Beranda.
         <form action="../welcomeUser.php">
