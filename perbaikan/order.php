@@ -60,12 +60,11 @@ if (isset($_POST['verifikasi'])) {
                 rencananya tabel gitu
             </p>
             <div class="table-responsive">
-
-                <div class="wrap-table100">
-                    <div class="table100">
+                <div>
+                    <div>
                         <table class="table">
                             <thead class="thead-light">
-                                <tr class="table100-head">
+                                <tr>
                                     <th>No</th>
                                     <th>Pemesanan</th>
                                     <th>Biaya</th>
@@ -75,12 +74,12 @@ if (isset($_POST['verifikasi'])) {
 
                                 </tr>
                             </thead>
+                            <?php for ($x = 1; $x < $i; $x++) {
+                            ?>
+                                <tbody class="bg-light">
 
-                            <tbody>
-                                <?php for ($x = 1; $x < $i; $x++) {
-                                ?>
                                     <tr>
-                                        <td><?php echo $x ?></td>
+                                        <td scope="row"><?php echo $x ?></td>
                                         <td><?php echo $pekerjaan[$x] ?></td>
                                         <td><?php echo $biaya[$x] ?></td>
                                         <td><?php echo $tanggalorder[$x] ?></td>
@@ -104,16 +103,13 @@ if (isset($_POST['verifikasi'])) {
                                     </tr>
                                 <?php } ?>
 
-                            </tbody>
+                                </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-
-        </div>
     </section>
-
 </main><!-- End #main -->
 
 <?php include "../include/footer.php" ?>

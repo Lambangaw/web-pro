@@ -46,7 +46,7 @@ if (isset($_POST['verifikasibukti'])) {
     <div class="container">
 
       <ol>
-        <li><a href="perbaikan.php">Home</a></li>
+        <li><a href="welcomeAdmin.php">Home</a></li>
         <li>Order</li>
       </ol>
       <h2>Pemesanan</h2>
@@ -54,66 +54,58 @@ if (isset($_POST['verifikasibukti'])) {
     </div>
   </section><!-- End Breadcrumbs -->
 
-  <section class="inner-page">
+  <section class="">
     <div class="container">
-      <p>
-        rencananya tabel gitu
-      </p>
       <div class="table-responsive">
+        <table class="table">
+          <thead class="bg-light">
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Pemesanan</th>
+              <th scope="col">Biaya</th>
+              <th scope="col">Tanggal Order</th>
+              <th scope="col">Keterangan</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <?php for ($x = 1; $x < $i; $x++) {
+          ?>
+            <tbody class="bg-white">
 
-        <div class="wrap-table100">
-          <div class="table100">
-            <table class="table">
-              <thead class="thead-light">
-                <tr class="table100-head">
-                  <th>No</th>
-                  <th>Pemesanan</th>
-                  <th>Biaya</th>
-                  <th>Tanggal Order</th>
-                  <th>Keterangan</th>
-                  <th>Status</th>
+              <tr>
+                <td><?php echo $x ?></td>
+                <td><?php echo $pekerjaan[$x] ?></td>
+                <td><?php echo $biaya[$x] ?></td>
+                <td><?php echo $tanggalorder[$x] ?></td>
+                <td><?php echo $catatan[$x] ?></td>
+                <td><?php
+                    if ($status[$x] == 0) { ?>
+                    <div>
+                      Belum dibayar user.
+                    </div>
+                  <?php } elseif ($status[$x] == 1) { ?>
+                    <form method="post" action="image/bukti/<?php echo $bukti[$x]  ?>">
+                      <button name="downloadbukti" type="submit" class="btn btn-info">Download!</button>
+                      <small>Download bukti bayar disini.</small>
+                    </form>
+                    <br>
+                    <form action="" method="post">
+                      <input type="hidden" id="custId" name="id" value="<?php echo $idorder[$x] ?>">
+                      <button name="verifikasibukti" type="submit" class="btn btn-success">Verifikasi Bukti bayar</button>
+                    </form>
+                  <?php  } elseif ($status[$x] == 3) {
+                      echo "Pemesanan Selesai \n";
+                    }
+                  ?>
+                </td>
+              </tr>
+            <?php } ?>
 
-                </tr>
-              </thead>
-
-              <tbody>
-                <?php for ($x = 1; $x < $i; $x++) {
-                ?>
-                  <tr>
-                    <td><?php echo $x ?></td>
-                    <td><?php echo $pekerjaan[$x] ?></td>
-                    <td><?php echo $biaya[$x] ?></td>
-                    <td><?php echo $tanggalorder[$x] ?></td>
-                    <td><?php echo $catatan[$x] ?></td>
-                    <td><?php
-                        if ($status[$x] == 0) { ?>
-                        <div>
-                          Belum dibayar user.
-                        </div>
-                      <?php } elseif ($status[$x] == 1) { ?>
-                        <form method="post" action="image/bukti/<?php echo $bukti[$x]  ?>">
-                          <button name="downloadbukti" type="submit" class="btn btn-info">Download!</button>
-                          <small>Download bukti bayar disini.</small>
-                        </form>
-                        <br>
-                        <form action="" method="post">
-                          <input type="hidden" id="custId" name="id" value="<?php echo $idorder[$x] ?>">
-                          <button name="verifikasibukti" type="submit" class="btn btn-success">Verifikasi Bukti bayar</button>
-                        </form>
-                      <?php  } elseif ($status[$x] == 3) {
-                          echo "Pemesanan Selesai \n";
-                        }
-                      ?>
-                    </td>
-                  </tr>
-                <?php } ?>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
+            </tbody>
+        </table>
       </div>
     </div>
+
 
     </div>
   </section>

@@ -95,7 +95,7 @@
 <script src="/web-pro/assets/vendor/venobox/venobox.min.js"></script>
 <script src="/web-pro/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
 <script src="/web-pro/assets/vendor/aos/aos.js"></script>
-<script src="/web-pro/assets/vendor/select2/select2.min.js"></script>
+
 <!-- Template Main JS File -->
 <script src="/web-pro/assets/js/main.js"></script>
 

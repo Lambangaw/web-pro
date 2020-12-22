@@ -457,7 +457,7 @@ h6 {
 table {
   border-spacing: 1;
   border-collapse: collapse;
-  background: blue;
+  background: rgb(255, 255, 255);
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
@@ -473,7 +473,7 @@ table th {
 }
 table thead tr {
   height: 60px;
-  background: #ff0000;
+  background: grey;
 }
 table tbody tr {
   height: 50px;
@@ -501,13 +501,13 @@ table th.r {
 .table100-head th {
   font-family: OpenSans-Regular;
   font-size: 18px;
-  color: rgb(255, 0, 0);
+  color: rgba(55, 81, 126, 0.8);
   line-height: 1.2;
   font-weight: unset;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #ff0000;
+  background-color: white;
 }
 
 tbody tr {
@@ -589,22 +589,22 @@ tbody tr:hover {
     top: 0;
   }
   table tbody tr td:nth-child(1):before {
-    content: "Date";
+    content: "Nomor";
   }
   table tbody tr td:nth-child(2):before {
-    content: "Order ID";
+    content: "Pemesanan";
   }
   table tbody tr td:nth-child(3):before {
-    content: "Name";
+    content: "Biaya";
   }
   table tbody tr td:nth-child(4):before {
-    content: "Price";
+    content: "Tanggal Order";
   }
   table tbody tr td:nth-child(5):before {
-    content: "Quantity";
+    content: "Keterangan";
   }
   table tbody tr td:nth-child(6):before {
-    content: "Total";
+    content: "Status";
   }
 
   .column4,
