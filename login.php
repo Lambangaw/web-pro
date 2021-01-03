@@ -1,4 +1,4 @@
-<?php include "include/header.php"; ?>
+<?php include "include/headerlogin.php"; ?>
 <?php include "include/nav.php"; ?>
 <?php include "include/db.php"; ?>
 <br>&nbsp;<br>
@@ -9,7 +9,7 @@
 
     $email = $_POST['emailUser'];
     $pwd = $_POST['pwd'];
-    var_dump($email, $pwd);
+
     if (
       !empty($email) && !empty($pwd)
     ) {
@@ -17,7 +17,13 @@
       $cekuser = mysqli_query($conn, $query);
 
       $count = mysqli_num_rows($cekuser);
-      if ($count > 0) {
+      if ($count < 1) { ?>
+        <div class="col-md-8 col-lg-7 text-center align-content-center mx-auto ">
+          <div class="alert alert-danger" role="alert">
+            Login Failed ! <strong> username/password</strong> Incorrect
+          </div>
+        </div>
+        <?php } else {
 
         while ($row = mysqli_fetch_assoc($cekuser)) {
 
@@ -48,10 +54,14 @@
             header('Location:welcomeAdmin.php');
           }
         } else {
-          echo "password salah";
+        ?>
+          <div class="col-md-8 col-lg-7 text-center align-content-center mx-auto ">
+            <div class="alert alert-danger" role="alert">
+              Login Failed ! <strong> username/password</strong> Incorrect
+            </div>
+          </div>
+  <?php
         }
-      } else {
-        echo "gaada user";
       }
     }
   }

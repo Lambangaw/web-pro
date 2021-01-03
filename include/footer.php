@@ -86,18 +86,26 @@
 <div id="preloader"></div>
 
 <!-- Vendor JS Files -->
-<script src="/web-pro/assets/vendor/jquery/jquery.min.js"></script>
-<script src="/web-pro/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/web-pro/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-<script src="/web-pro/assets/vendor/php-email-form/validate.js"></script>
-<script src="/web-pro/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-<script src="/web-pro/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="/web-pro/assets/vendor/venobox/venobox.min.js"></script>
-<script src="/web-pro/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-<script src="/web-pro/assets/vendor/aos/aos.js"></script>
+<script src="/tukangku/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/tukangku/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/tukangku/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="/tukangku/assets/vendor/php-email-form/validate.js"></script>
+<script src="/tukangku/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="/tukangku/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/tukangku/assets/vendor/venobox/venobox.min.js"></script>
+<script src="/tukangku/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="/tukangku/assets/vendor/aos/aos.js"></script>
 
 <!-- Template Main JS File -->
-<script src="/web-pro/assets/js/main.js"></script>
+<script src="/tukangku/assets/js/main.js"></script>
+
+<!-- table responsive -->
+<script src="/tukangku/table/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="/tukangku/table/vendor/bootstrap/js/popper.js"></script>
+<script src="/tukangku/table/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="/tukangku/table/vendor/select2/select2.min.js"></script>
 
 </body>
 

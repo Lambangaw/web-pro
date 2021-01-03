@@ -1,4 +1,4 @@
-<?php include "include/header.php" ?>
+<?php include "include/headerlogin.php" ?>
 <?php include "include/nav.php" ?>
 <?php include "include/db.php" ?>
 <br>&nbsp;<br>
@@ -38,10 +38,21 @@
             header("Location:login.php");
           }
         } else {
-          echo "password tidak sama";
+    ?>
+          <div class="col-md-8 col-lg-7 text-center align-content-center mx-auto ">
+            <div class="alert alert-danger" role="alert">
+              Signup Failed ! <strong> Password confirmation Incorrect </strong>
+            </div>
+          </div>
+        <?php
         }
       } else {
-        echo "jangan kosong";
+        ?>
+        <div class="col-md-8 col-lg-7 text-center align-content-center mx-auto ">
+          <div class="alert alert-danger" role="alert">
+            Signup Failed ! <strong> Please fill this form completely </strong> </div>
+        </div>
+    <?php
       }
     }
     ?>

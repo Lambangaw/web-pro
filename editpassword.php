@@ -1,4 +1,4 @@
-<?php include "include/header.php" ?>
+<?php include "include/headerlogin.php" ?>
 <?php include "include/navLogin.php" ?>
 <?php include "include/db.php" ?>
 <?php if (isset($_POST['editpassword'])) {
@@ -8,12 +8,12 @@
     if (!empty($current_password) && !empty($new_password) && !empty($confirm_password)) {
 
         if (isset($_SESSION['iduser'])) {
-            $user_id = $_SESSION['iduser'];
+            $id = $_SESSION['iduser'];
         } else {
             header("Location: login.php");
         }
-        if (strlen($new_password) > 4) {
-            $query = "SELECT pwd FROM user WHERE `IdUser` = '$user_id'";
+        if (strlen($new_password) > 0) {
+            $query = "SELECT pwd FROM user WHERE `IdUser` = '$id'";
             $select_user = mysqli_query($conn, $query);
 
 
@@ -24,13 +24,33 @@
             if ($new_password === $confirm_password) {
                 if ($current_password == $db_user_password) {
                     $new_password = password_hash($new_password, PASSWORD_DEFAULT);
-                    $query = "UPDATE user SET pwd = '$new_password' WHERE `IdUser` = '$user_id' ";
-                    $change_password = mysqli_query($conn, $query);
-                }
-            }
-        }
-    }
-}
+                    $query = "UPDATE user SET pwd = '$new_password' WHERE `IdUser` = '$id' ";
+                    $change_password = mysqli_query($conn, $query); ?>
+                    <div class="alert alert-primary col-lg-6" role="alert" style="margin-left: 10px;">
+                        Passwrod Changed
+                    </div>
+
+                <?php } else { ?>
+                    <div class="alert alert-danger col-lg-6" role="alert" style="margin-left: 10px;">
+                        Your Current Password is Wrong
+                    </div>
+                <?php }
+            } else { ?>
+                <div class="alert alert-danger col-lg-6" role="alert" style="margin-left: 10px;">
+                    Your Password Did Not Match
+                </div>
+            <?php }
+        } else { ?>
+            <div class="alert alert-danger col-lg-6" role="alert" style="margin-left: 10px;">
+                Your Password Too Short
+            </div>
+        <?php }
+    } else { ?>
+        <div class="alert alert-danger col-lg-6 " role="alert" style="margin-left: 10px;">
+            This Form can not empty!
+        </div>
+<?php }
+} ?>
 ?>
 <div class="alert alert-primary col-lg-6" role="alert" style="margin-left: 10px;">
     Passwrod Changed

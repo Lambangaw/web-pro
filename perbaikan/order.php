@@ -1,4 +1,4 @@
-<?php include "../include/header.php" ?>
+<?php include "../include/headerlogin.php" ?>
 <?php include "../include/navLogin.php" ?>
 <?php include "../include/db.php" ?>
 <?php
@@ -46,7 +46,7 @@ if (isset($_POST['verifikasi'])) {
         <div class="container">
 
             <ol>
-                <li><a href="perbaikan.php">Home</a></li>
+                <li><a href="../welcomeUser.php">Home</a></li>
                 <li>Order</li>
             </ol>
             <h2>Pemesanan</h2>
@@ -62,7 +62,7 @@ if (isset($_POST['verifikasi'])) {
             <div class="table-responsive">
                 <div>
                     <div>
-                        <table class="table">
+                        <table class="table ">
                             <thead class="thead-light">
                                 <tr>
                                     <th>No</th>

@@ -1,9 +1,12 @@
-<?php include "include/header.php" ?>
+<?php include "include/headerlogin.php" ?>
 <?php include "include/navAdmin.php" ?>
 <?php include "include/db.php" ?>
 <?php
 $iduser = $_SESSION['iduser'];
-$query = "SELECT * FROM perbaikan 
+$query = "SELECT perbaikan.IdPerbaikan, perbaikan.IdUser, perbaikan.pekerjaan,
+perbaikan.tanggalOrder, perbaikan.tanggalSelesai, perbaikan.catatan, perbaikan.status, pembayaran.IdPembayaran,
+pembayaran.bukti, pembayaran.tanggalPembayaran, pembayaran.jumlah, 
+kategoriperbaikan.namaKategori, kategoriperbaikan.biayaKategori FROM perbaikan 
            LEFT JOIN pembayaran on pembayaran.IdPerbaikan = perbaikan.IdPerbaikan
            INNER JOIN kategoriperbaikan on perbaikan.IdKategori = kategoriperbaikan.IdKategori
             ";
@@ -54,13 +57,13 @@ if (isset($_POST['verifikasibukti'])) {
     </div>
   </section><!-- End Breadcrumbs -->
 
-  <section class="">
+  <section class="inner-page">
     <div class="container">
       <div class="table-responsive">
         <table class="table">
-          <thead class="bg-light">
+          <thead class="thead-light">
             <tr>
-              <th scope="col">No</th>
+              <th scope="col">ID Pemesanan</th>
               <th scope="col">Pemesanan</th>
               <th scope="col">Biaya</th>
               <th scope="col">Tanggal Order</th>
@@ -73,7 +76,7 @@ if (isset($_POST['verifikasibukti'])) {
             <tbody class="bg-white">
 
               <tr>
-                <td><?php echo $x ?></td>
+                <td><?php echo $idorder[$x] ?></td>
                 <td><?php echo $pekerjaan[$x] ?></td>
                 <td><?php echo $biaya[$x] ?></td>
                 <td><?php echo $tanggalorder[$x] ?></td>
@@ -93,7 +96,12 @@ if (isset($_POST['verifikasibukti'])) {
                       <input type="hidden" id="custId" name="id" value="<?php echo $idorder[$x] ?>">
                       <button name="verifikasibukti" type="submit" class="btn btn-success">Verifikasi Bukti bayar</button>
                     </form>
-                  <?php  } elseif ($status[$x] == 3) {
+                  <?php  } elseif ($status[$x] == 2) {
+                  ?>
+                    <p>
+                      Menunggu pesanan dikonfirmasi User
+                    </p>
+                  <?php } elseif ($status[$x] == 3) {
                       echo "Pemesanan Selesai \n";
                     }
                   ?>

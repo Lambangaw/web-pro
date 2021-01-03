@@ -1,0 +1,249 @@
+#include <iostream>
+#include <list>
+#include <graphics.h>
+
+using namespace std;
+
+class Point // deklarasi kelas yang digunakan sbg titik penanda graph
+{
+private: // prototype fungsi dan insialisasi variable yang akan digunakan
+    int x, y;
+    string name;
+
+public:
+    Point();
+    Point(int x, int y, string name);
+    int getX();
+    int getY();
+    string getName();
+};
+
+Point::Point()
+{
+    // inisialiasasi nilai default x dan y
+    this->x = -1;
+    this->y = -1;
+    this->name = "";
+}
+
+Point::Point(int x, int y, string name)
+{
+    // Apabila suatu titik diinput dengan sb x dan sb y nya
+    // maka set x dan y sesuai koordinat inputan
+    this->x = x;
+    this->y = y;
+    this->name = name;
+}
+
+int Point::getX()
+{
+    return x;
+}
+
+int Point::getY()
+{
+    return y;
+}
+
+string Point::getName()
+{
+    return name;
+}
+
+class Graph // deklarasi kelas yg digunakan sebagai graph
+{
+private:                 // Inisialisasi variable yang hanya bisa dipanggil dalam scope class ini
+    int V, max_y, max_x; // deklarasi variable nilai dari graph dan nilai maximum dri sb x dan y
+    list<int> *adj;
+    list<Point> *coord;
+
+public: // prototype fungsi dan variable yang akan digunakan
+    Graph(int v);
+    void addVertice(int v, int x, int y, string name);
+    void addEdge(int v, int w);
+    bool connected(int v, int w);
+    void printList();
+    void printArrow();
+    void printGraph();
+};
+
+Graph::Graph(int V) // Constructor
+{
+    this->V = V;
+    this->max_x = 0;
+    this->max_y = 0;
+    adj = new list<int>[V];
+    coord = new list<Point>[V];
+}
+
+void Graph::addVertice(int v, int x, int y, string name)
+{
+    Point p(x, y, name);
+    coord[v].push_back(p);
+}
+
+void Graph::addEdge(int v, int w)
+{
+    adj[v].push_back(w);
+    adj[w].push_back(v);
+}
+
+bool Graph::connected(int v, int w) // Mengecek apakah antara graph satu dengan lain terhubung
+{
+    list<int>::iterator j;
+    for (j = adj[v].begin(); j != adj[v].end(); j++)
+    {
+        if (*j == w)
+            return true;
+    }
+    for (j = adj[w].begin(); j != adj[w].end(); j++)
+    {
+        if (*j == v)
+            return true;
+    }
+    return false;
+}
+
+void Graph::printList() // Menampilkan adjacency list dari graph
+{
+    list<int>::iterator i;
+    for (int v = 0; v < V; v++)
+    {
+        cout << v;
+        for (i = adj[v].begin(); i != adj[v].end(); ++i)
+        {
+            cout << " -> " << *i;
+        }
+        cout << endl;
+    }
+}
+
+void Graph::printArrow()
+{
+    outtextxy(135, 235, "^");
+    outtextxy(216, 205, ">");
+    outtextxy(330, 132, "^");
+    outtextxy(416, 105, ">");
+    outtextxy(520, 75, "^");
+    outtextxy(550, 170, "V");
+    outtextxy(550, 320, "V");
+    outtextxy(385, 355, "<");
+    outtextxy(105, 355, "<");
+}
+
+void Graph::printGraph()
+{
+    list<Point>::iterator i;
+
+    for (int v = 0; v < V; v++)
+    {
+        for (int val = v + 1; val < V; val++)
+        {
+            if (!connected(v, val))
+                continue;
+
+            i = coord[v].begin();
+            int x1 = i->getX();
+            int y1 = i->getY();
+
+            i = coord[val].begin();
+            int x2 = i->getX();
+            int y2 = i->getY();
+
+            line(x1, y1, x2, y2);
+        }
+    }
+
+    // mengatur gaya Penulisan Teks
+    settextstyle(1, 0, 1);
+    settextjustify(1, 1);
+
+    for (int v = 0; v < V; v++)
+    {
+        i = coord[v].begin();
+        int point_x = i->getX(); // mendapatkan koordinat x
+        int point_y = i->getY(); // mendapatkan koordinat y
+        string name = i->getName();
+        int n = name.length();
+        char char_array[n + 1];
+        char str[5];
+
+        setbkcolor(WHITE);               // Warna Background tulisan pada lingkaran
+        setfillstyle(SOLID_FILL, WHITE); //Warna Lingkaran
+        setcolor(LIGHTGRAY);             //Warna Line Lingkaran
+
+        strcpy(char_array, name.c_str());
+        circle(point_x, point_y, 25);
+        floodfill(point_x + 1, point_y + 1, LIGHTGRAY); //isi warna Lingkaran hingga batasnya
+
+        setcolor(BLACK);
+        sprintf(str, "%d", v);
+        outtextxy(point_x, point_y + 5, str);
+
+        setbkcolor(BLACK);
+        setcolor(WHITE);
+        outtextxy(point_x, point_y + 50, char_array);
+    }
+}
+
+int main()
+{
+    Graph g(9);
+
+    // initgraph initializes the graphics system
+    // by loading a graphics driver from disk
+    initwindow(1200, 780);
+
+    // font style
+    int font = 8;
+
+    // font direction
+    int direction = 0;
+
+    // font size
+    int font_size = 1;
+
+    // for setting text style
+    settextstyle(font, direction, font_size);
+    settextjustify(1, 1);
+    //menambahkan titik dengan namanya
+    g.addVertice(0, 280, 70, "PENS");
+    g.addVertice(1, 100, 250, "Bundaran ITS");
+    g.addVertice(2, 440, 200, "PPNS");
+    g.addVertice(3, 140, 400, "Manarul Ilmi");
+    g.addVertice(4, 150, 500, "GOR");
+    g.addVertice(5, 170, 650, "Biologi");
+    g.addVertice(6, 360, 635, "Perumdos Blok U");
+    g.addVertice(7, 490, 460, "Perumdos Blok T");
+    g.addVertice(8, 400, 350, "FTK");
+    //menambahkan hubungan titik
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 3);
+    g.addEdge(3, 4);
+    g.addEdge(4, 5);
+    g.addEdge(5, 6);
+    g.addEdge(6, 7);
+    g.addEdge(7, 8);
+    g.addEdge(8, 2);
+
+    cout << "Adjacency List : " << endl;
+    g.printList(); //Mencetak Adjancency List
+
+    cout << "" << endl;
+    cout << " Keterangan : " << endl;
+    cout << " 0 = Taman Air Mancur Menari ITS" << endl;
+    cout << " 1 = Teknik Lingkungan" << endl;
+    cout << " 2 = Teknik Sipil" << endl;
+    cout << " 3 = Teknik Arsitektur" << endl;
+    cout << " 4 = Rektorat ITS" << endl;
+    cout << " 5 = Perpustakaan ITS" << endl;
+    cout << " 6 = Plaza Dr. Angka" << endl;
+    cout << " 7 = SCC ITS" << endl;
+    cout << " 8 = Masjid Manarul Ilmi" << endl;
+
+    g.printGraph(); //Mencetak Gambar Graph
+    g.printArrow(); //Mencetak Panah
+    getch();
+    closegraph();
+}

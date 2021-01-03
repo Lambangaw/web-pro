@@ -1,4 +1,4 @@
-<?php include "include/header.php" ?>
+<?php include "include/headerlogin.php" ?>
 <?php include "include/navLogin.php" ?>
 <?php include "include/db.php" ?>
 <?php
@@ -45,7 +45,19 @@ if (isset($_POST['submitalamat'])) {
                 WHERE idUser = '$id'";
   $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
   if ($result) {
-    $_SESSION['alamat'] = $emailupdate;
+    $_SESSION['alamat'] = $alamatupdate;
+    header('Location:profile.php');
+  }
+} ?>
+<?php
+if (isset($_POST['submitnomor'])) {
+  $id = $_SESSION['iduser'];
+  $nomorupdate = $_POST['nomortelpon'];
+  $query = "UPDATE user SET nomorTelponUser = '$nomorupdate'    
+                WHERE idUser = '$id'";
+  $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+  if ($result) {
+    $_SESSION['nomortelepon'] = $nomorupdate;
     header('Location:profile.php');
   }
 } ?>
@@ -138,8 +150,8 @@ while ($row = mysqli_fetch_assoc($db)) {
             <p>
               <label for="name">Nomor Telepon</label>
               <form action="" method="post" class="form-inline">
-                <input type="text" name="alamat" class="form-control" id="name" data-msg="Please enter at least 4 chars" placeholder="<?php echo $_SESSION['nomortelepon'] ?>" />
-                <button name="submitalamat" class="btn btn-primary" type="submit"> Submit </button>
+                <input type="text" name="nomortelpon" class="form-control" id="name" data-msg="Please enter at least 4 chars" placeholder="<?php echo $_SESSION['nomortelepon'] ?>" />
+                <button name="submitnomor" class="btn btn-primary" type="submit"> Submit </button>
               </form>
             </p>
           </div>

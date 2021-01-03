@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<link href="./dadak.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container contact-form">
+    <div class="contact-image">
+        <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+    </div>
+    <form method="post">
+        <h3>Pendaftaran KTI IOT</h3>
+        <div class="row">
+            <div class="col">
+                <div class="form-group" >
+                    <span>Nama Tim: </span>
+                    <input type="text" name="txtName" class="form-control" placeholder="Nama Tim" value="" required/>
+                </div>
+               <span> Nama Lengkap Anggota : </span>
+                <div class="form-group">
+                    <input type="text" name="nama_ketua" class="form-control" placeholder="Leader Name" value="" required />
+                    <input type="text" name="nama_anggota1" class="form-control" placeholder="Member 1 Name" value=""  />
+                    <input type="text" name="nama_anggota2" class="form-control" placeholder="Member 2 Name" value="" />
+                </div>
+                <span> Nomor Induk Mahasiswa : </span>
+                <div class="form-group">
+                    <input type="text" name="nrp_ketua" class="form-control" placeholder="Leader Student ID Number" value="" required />
+                    <input type="text" name="nrp_anggota1" class="form-control" placeholder="Member 1 Student ID Number" value="" />
+                    <input type="text" name="nrp_anggota2" class="form-control" placeholder="Member 2 Student ID Number" value="" />
+                </div>
+                <span> Alamat : </span>
+                <div class="form-group">
+                    <input type="text" name="alamat" class="form-control" placeholder="Leader Address " value="" required/>
+                </div>
+                <span> Jenis Kelamin : </span>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" name="jenis_kelamin_ketua" id="jenis_kelamin_ketua" required>
+                                    <option value="">Jenis Kelamin Ketua Tim</option>
+                                    <option value="0">Laki-laki</option>
+                                    <option value="1">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" name="jenis_kelamin_pertama" id="jenis_kelamin_pertama" required>
+                                    <option value="">Jenis Kelamin Anggota Pertama</option>
+                                    <option value="0">Laki-laki</option>
+                                    <option value="1">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" name="jenis_kelamin_kedua" id="jenis_kelamin_kedua">
+                                    <option value="">Jenis Kelamin Anggota Kedua</option>
+                                    <option value="0">Laki-laki</option>
+                                    <option value="1">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>    
+                <span>Institusi : </span>
+                <div class="form-group">
+                    <input type="text" name="institusi" class="form-control" placeholder="Institution ex: ITS, SMAN 1 Surabaya" value="" required/>
+                </div>
+                <span>Email : </span>
+                <div class="form-group">
+                    <input type="text" name="email_ketua" class="form-control" placeholder="Leader Email Address" value="" required/>
+                    <input type="text" name="email_anggota1" class="form-control" placeholder="Member 1 Email Address" value="" />
+                    <input type="text" name="email_anggota2" class="form-control" placeholder="Member 2 Email Address" value="" />
+                </div>
+                <span>Nomor Telepon : </span>
+                <div class="form-group">
+                    <input type="text" name="nomor_telepon" class="form-control" placeholder="Leader Phone Number (whatsapp)" value="" required/>
+                </div>
+                <span>ID Line :</span> 
+                <div class="form-group">
+                    <input type="text" name="line" class="form-control" placeholder="ID line" value="" required/>
+                </div>
+                <span>Kartu Tanda Mahasiswa :</span>
+                <div class="form-group">
+                    <small>Leader Kartu Tanda Mahasiswa </small>
+                    <input type="file" name="ktm_ketua" class="form-control" placeholder="Leader Kartu Tanda Mahasiswa" value="" required/>
+                    <small>Member 1 Kartu Tanda Mahasiswa </small>
+                    <input type="file" name="ktm_anggota1" class="form-control" placeholder="Member 1 Kartu Tanda Mahasiswa" value="" />
+                    <small>Member 2 Kartu Tanda Mahasiswa </small>
+                    <input type="file" name="ktm_anggota2" class="form-control" placeholder="Member 2 Kartu Tanda Mahasiswa" value="" />
+                </div>
+                <span>Surat Keterangan Mahasiswa Aktif :</span>
+                <div class="form-group">
+                    <small>SK Aktif Mahasiswa Leader  </small>
+                    <input type="file" name="sk_ketua" class="form-control" placeholder="Leader Surat Keterangan Mahasiswa Aktif" value="" required/>
+                    <small>SK Aktif Mahasiswa Member 1 </small>
+                    <input type="file" name="sk_anggota1" class="form-control" placeholder="Member 1 Surat Keterangan Mahasiswa Aktif" value="" />
+                    <small>SK Aktif Mahasiswa Member 2 </small>
+                    <input type="file" name="sk_anggota2" class="form-control" placeholder="Member 2 Surat Keterangan Mahasiswa Aktif" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+                </div>
+            </div>
+            
+        </div>
+    </form>
+</div>
+</body>

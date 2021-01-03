@@ -1,4 +1,4 @@
-<?php include "../include/header.php" ?>
+<?php include "../include/headerlogin.php" ?>
 <?php include "../include/db.php" ?>
 <?php include "../include/navLogin.php" ?>
 <?php
@@ -12,10 +12,10 @@ if (isset($_POST['submit'])) {
         !empty($work) && !empty($alamat) && !empty($date)
     ) {
         $queryperbaikan = "INSERT INTO `perbaikan`
-                    ( `IdUser`, `pekerjaan`, `IdKategori`, `tanggalOrder`, `tanggalSelesai`, `catatan`) 
-                    VALUES ('$iduser','$work',6,now(),'$date','$catatan')
+                    ( `IdUser`, `pekerjaan`, `IdKategori`, `tanggalOrder`, `tanggalSelesai`, `catatan`,`status`) 
+                    VALUES ('$iduser','$work',6,now(),'$date','$catatan',0)
                     ";
-        $input = mysqli_query($conn, $query);
+        $input = mysqli_query($conn, $queryperbaikan);
         if (!$input) {
             die("STRING QUERY " . mysqli_error($conn));
         }
