@@ -13,7 +13,7 @@
         <h2>Tukangku menawarkan solusi</h2>
         <div class="d-lg-flex">
           <a href="#about" class="btn-get-started scrollto">Get Started</a>
-          <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+          <a href="https://youtu.be/GC0G1rGta9I" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
         </div>
       </div>
       <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -70,34 +70,34 @@
         <p>Layanan yang kami tawarkan</p>
       </div>
 
-      <div class="row">
-        <div class="d-flex justify-content-center ">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-xl-0" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="perbaikan.html">Perbaikan dan Instalasi</a></h4>
-              <p>Perbaikan tertentu pada suatu bagian bangunan. Pekerjaan instalasi atau pemasangan skala kecil. Pekerjaan yang dapat diselesaikan dalam satu hari atau waktu singkat.</p>
-            </div>
+      <div class="row d-flex justify-content-center">
+        <!-- <div class="d-flex justify-content-center "> -->
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-xl-0" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+            <h4><a href="perbaikan.html">Perbaikan dan Instalasi</a></h4>
+            <p>Perbaikan tertentu pada suatu bagian bangunan. Pekerjaan instalasi atau pemasangan skala kecil. Pekerjaan yang dapat diselesaikan dalam satu hari atau waktu singkat.</p>
           </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="konsultasi.html">Konsultasi</a></h4>
-              <p>Konsultasi kebutuhan dan perencanaan desain pembangunan. Pembuatan gambar kerja pembangunan. Estimasi anggaran biaya Proyek.</p>
-            </div>
-          </div>
-
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Renovasi</a></h4>
-              <p>Untuk hunianmu menjadi lebih baik</p>
-            </div>
-          </div>
-
         </div>
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-file"></i></div>
+            <h4><a href="konsultasi.html">Konsultasi</a></h4>
+            <p>Konsultasi kebutuhan dan perencanaan desain pembangunan. Pembuatan gambar kerja pembangunan. Estimasi anggaran biaya Proyek.</p>
+          </div>
+        </div>
+
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-layer"></i></div>
+            <h4><a href="">Renovasi</a></h4>
+            <p>Untuk hunianmu menjadi lebih baik</p>
+          </div>
+        </div>
+
+        <!-- </div> -->
       </div>
     </div>
   </section><!-- End Services Section -->
@@ -257,13 +257,13 @@
       <div class="row">
 
         <div class="col-lg-3 col-md-6 footer-contact">
-          <h3>Arsha</h3>
+          <h3>Tukangku</h3>
           <p>
-            A108 Adam Street <br>
-            New York, NY 535022<br>
-            United States <br><br>
-            <strong>Phone:</strong> +1 5589 55488 55<br>
-            <strong>Email:</strong> info@example.com<br>
+            Jalan srabah no 10 <br>
+            Tulungagung, Jawa Timur<br>
+            Indonesia <br><br>
+            <strong>Phone:</strong> +62 8954105-42711<br>
+            <strong>Email:</strong> lambangwijayadi@gmail.com<br>
           </p>
         </div>
 
